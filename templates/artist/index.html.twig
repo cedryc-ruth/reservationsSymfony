@@ -9,12 +9,23 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Liste des {{ resource }}</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'V:/Epfc/UwAmp/www/reservations/src/Controller/ArtistController.php'|file_link(0) }}">src/Controller/ArtistController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'V:/Epfc/UwAmp/www/reservations/templates/artist/index.html.twig'|file_link(0) }}">templates/artist/index.html.twig</a></code></li>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}    
+            <tr>
+                <th>{{ artist.firstname }}</th>
+                <th>{{ artist.lastname }}</th>
+            </tr>
+        {% endfor %}    
+        </tbody>
+    </table>
 </div>
 {% endblock %}
