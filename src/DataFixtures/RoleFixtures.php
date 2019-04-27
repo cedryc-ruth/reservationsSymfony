@@ -19,6 +19,8 @@ class RoleFixtures extends Fixture
             $role = new Role();
             $role->setRole($r['role']);
             
+            $this->addReference($r['role'], $role);
+            
             $manager->persist($role);
         }
 
