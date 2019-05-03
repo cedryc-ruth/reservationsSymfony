@@ -26,7 +26,7 @@ class Representation
     private $the_show;
 
     /**
-     * @ORM\Column(type="datetime", name="when")
+     * @ORM\Column(type="datetime", name="schedule")
      */
     private $the_date;
 
