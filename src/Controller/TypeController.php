@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Type;
 
-
 class TypeController extends AbstractController
 {
     /**
@@ -14,7 +13,7 @@ class TypeController extends AbstractController
      */
     public function index()
     {
-        $repo= $this->getDoctrine()->getRepository(Type::class);
+        $repo = $this->getDoctrine()->getRepository(Type::class);
         
         $types = $repo->findAll();
         

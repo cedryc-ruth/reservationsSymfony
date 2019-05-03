@@ -11,13 +11,21 @@
 <div class="example-wrapper">
     <h1>Liste des {{ resource }}</h1>
 
-    <ul>
-        <li> <span>Code Postal</span> <span>Localité</span> </li>
-        {% for locality in localities %}
-        <li><span>{{ locality.postalCode }}</span> <span>{{ locality.locality }}</span></li>
-            
-        {% endfor %}
-    </ul>
-    
+    <table>
+        <thead>
+            <tr>
+                <th>Code postal</th>
+                <th>Localité</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for locality in localities %}    
+            <tr>
+                <th>{{ locality.postalCode }}</th>
+                <th>{{ locality.locality }}</th>
+            </tr>
+        {% endfor %}    
+        </tbody>
+    </table>
 </div>
 {% endblock %}

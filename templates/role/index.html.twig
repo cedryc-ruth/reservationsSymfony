@@ -10,12 +10,11 @@
 
 <div class="example-wrapper">
     <h1>Liste des {{ resource }}</h1>
-
-    <ul>
-        {% for role in roles %}
-            <li>{{ role.role }}</li>
-        {% endfor %}
-    </ul>
     
+    <ul>
+    {% for role in roles %}
+        <li>{{ role.role }}</li>
+    {% endfor %}
+    </ul>
 </div>
 {% endblock %}

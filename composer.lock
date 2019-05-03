@@ -1657,7 +1657,11 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
+<<<<<<< HEAD
             "time": "2019-04-30T17:48:53+00:00"
+=======
+            "time": "2017-11-30T07:14:17+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -2543,7 +2547,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-04-27T11:48:17+00:00"
+=======
+            "time": "2019-04-16T11:19:53+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/doctrine-bridge",
@@ -3033,7 +3041,11 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-04-27T11:48:17+00:00"
+=======
+            "time": "2019-04-16T07:32:54+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/framework-bundle",
@@ -3152,7 +3164,11 @@
             ],
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-05-01T08:36:31+00:00"
+=======
+            "time": "2019-04-17T15:01:37+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/http-foundation",
@@ -3206,7 +3222,11 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-05-01T08:36:31+00:00"
+=======
+            "time": "2019-04-17T14:56:00+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/http-kernel",
@@ -3295,7 +3315,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-05-01T13:31:08+00:00"
+=======
+            "time": "2019-04-17T16:17:13+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/inflector",
@@ -3428,7 +3452,11 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
             "time": "2019-04-27T11:48:17+00:00"
+=======
+            "time": "2019-04-01T07:32:59+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/monolog-bridge",
@@ -3496,7 +3524,11 @@
             ],
             "description": "Symfony Monolog Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-05-01T08:36:31+00:00"
+=======
+            "time": "2019-02-28T17:49:31+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/monolog-bundle",
@@ -4143,7 +4175,11 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
             "time": "2019-04-27T09:38:08+00:00"
+=======
+            "time": "2019-04-14T18:04:59+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/security-bundle",
@@ -4296,7 +4332,11 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-04-28T07:09:27+00:00"
+=======
+            "time": "2019-03-19T21:07:50+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/security-csrf",
@@ -4555,7 +4595,11 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-04-28T07:09:27+00:00"
+=======
+            "time": "2019-04-11T11:27:41+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/serializer-pack",
@@ -4772,7 +4816,11 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-05-01T12:55:36+00:00"
+=======
+            "time": "2019-04-10T16:20:36+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/twig-bridge",
@@ -4864,7 +4912,11 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-05-01T05:55:04+00:00"
+=======
+            "time": "2019-04-12T13:50:35+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/twig-bundle",
@@ -4940,7 +4992,11 @@
             ],
             "description": "Symfony TwigBundle",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-04-28T07:09:27+00:00"
+=======
+            "time": "2019-04-11T11:27:41+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/validator",
@@ -5029,7 +5085,11 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-05-01T05:55:04+00:00"
+=======
+            "time": "2019-04-17T15:01:37+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/var-exporter",
@@ -5286,7 +5346,11 @@
             "keywords": [
                 "templating"
             ],
+<<<<<<< HEAD
             "time": "2019-04-28T06:57:38+00:00"
+=======
+            "time": "2019-04-16T17:14:24+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "webmozart/assert",
@@ -6193,7 +6257,11 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-04-23T14:37:24+00:00"
+=======
+            "time": "2019-04-16T09:36:45+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/profiler-pack",
@@ -6326,7 +6394,11 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
             "time": "2019-05-01T12:55:36+00:00"
+=======
+            "time": "2019-04-17T14:57:01+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/web-profiler-bundle",
@@ -6392,7 +6464,11 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-04-27T11:48:17+00:00"
+=======
+            "time": "2019-04-11T11:58:13+00:00"
+>>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         },
         {
             "name": "symfony/web-server-bundle",

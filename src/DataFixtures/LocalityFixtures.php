@@ -11,16 +11,15 @@ class LocalityFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $localities = [
-            ['postal_code'=>'1000', 'locality'=>'Bruxelles'],
-            ['postal_code'=>'1020', 'locality'=>'Laeken'],
-            ['postal_code'=>'1030', 'locality'=>'Schaerbeek'],
-            ['postal_code'=>'1050', 'locality'=>'Ixelles'],
-            ['postal_code'=>'1090', 'locality'=>'Jette'],
-            ['postal_code'=>'1180', 'locality'=>'Uccle'],
-            ['postal_code'=>'4000', 'locality'=>'Liège'],
-            ['postal_code'=>'5000', 'locality'=>'Namur'],
-            ['postal_code'=>'6000', 'locality'=>'Charleroi'],
-
+          ['postal_code'=>'1000','locality'=>'Bruxelles'],  
+          ['postal_code'=>'1020','locality'=>'Laeken'],  
+          ['postal_code'=>'1030','locality'=>'Schaerbeek'],  
+          ['postal_code'=>'1050','locality'=>'Ixelles'],  
+          ['postal_code'=>'1090','locality'=>'Jette'],  
+          ['postal_code'=>'1180','locality'=>'Uccle'],  
+          ['postal_code'=>'4000','locality'=>'Liège'],  
+          ['postal_code'=>'5000','locality'=>'Namur'],  
+          ['postal_code'=>'6000','locality'=>'Charleroi'],  
         ];
         
         foreach($localities as $l) {
@@ -32,7 +31,7 @@ class LocalityFixtures extends Fixture
             
             $this->addReference($l['locality'], $locality);
         }
-        
+
         $manager->flush();
     }
 }

@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Role;
 
-
 class RoleController extends AbstractController
 {
     /**
@@ -14,7 +13,7 @@ class RoleController extends AbstractController
      */
     public function index()
     {
-        $repo= $this->getDoctrine()->getRepository(Role::class);
+        $repo = $this->getDoctrine()->getRepository(Role::class);
         
         $roles = $repo->findAll();
         
