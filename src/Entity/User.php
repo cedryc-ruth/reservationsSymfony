@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -13,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity(fields="login", message="This login is already taken.")
  * @UniqueEntity(fields="email", message="This email is already taken.")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -186,5 +187,20 @@ class User
         }
 
         return $this;
+    }
+    public function eraseCredentials() {
+        
+    }
+
+    public function getRoles() {
+        
+    }
+
+    public function getSalt() {
+        
+    }
+
+    public function getUsername(): string {
+        
     }
 }
