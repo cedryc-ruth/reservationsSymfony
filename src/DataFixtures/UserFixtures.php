@@ -43,6 +43,8 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setLangue($u['langue']);
             
             $manager->persist($user);
+            
+            $this->addReference($u['login'], $user);
         }
         
         $manager->flush();

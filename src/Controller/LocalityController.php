@@ -13,11 +13,7 @@ class LocalityController extends AbstractController
      */
     public function index()
     {
-<<<<<<< HEAD
-        $repo= $this->getDoctrine()->getRepository(Locality::class);
-=======
         $repo = $this->getDoctrine()->getRepository(Locality::class);
->>>>>>> 797bfd4403c1d9fa587670caef02e908b31bf4f3
         
         $localities = $repo->findAll();
         

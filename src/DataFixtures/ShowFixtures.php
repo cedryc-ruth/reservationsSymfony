@@ -20,6 +20,11 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
               'location'=>'belfius-art-collection',
               'bookable'=>1,
               'price'=>9.50,
+              'troupe'=>[
+                  'bob-sull-comedien',
+                  'marc-flynn-metteur-en-scene',
+                  'fred-durand-comedien',
+              ],
           ],
           [
               'slug'=>'cible-mouvante',
@@ -28,6 +33,11 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
               'location'=>'la-samaritaine',
               'bookable'=>1,
               'price'=>8.50,
+              'troupe'=>[
+                  'bob-sull-metteur-en-scene',
+                  'marc-flynn-dramaturge',
+                  'fred-durand-comedien',
+              ],
           ],
           [
               'slug'=>'ceci-n-est-pas-un-chanteur-belge',
@@ -36,6 +46,10 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
               'location'=>'belfius-art-collection',
               'bookable'=>0,
               'price'=>7.50,
+              'troupe'=>[
+                  'fred-durand-metteur-en-scene',
+                  'marc-flynn-comedien',
+              ],
           ],
         ];
         
@@ -47,6 +61,10 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
             $show->setLocation($this->getReference($data['location']));
             $show->setBookable($data['bookable']);
             $show->setPrice($data['price']);
+            
+            foreach ($data['troupe'] as $troupe) {
+                $show->addTroupe($this->getReference($troupe));
+            }
             
             $manager->persist($show);
             

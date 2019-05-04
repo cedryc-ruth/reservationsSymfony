@@ -6,8 +6,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use App\Entity\Representation;
-use App\Entity\Show;
-use App\Entity\Location;
 
 class RepresentationFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -52,6 +50,9 @@ class RepresentationFixtures extends Fixture implements DependentFixtureInterfac
             $representation->setTheDate($data['the_date']);
             
             $manager->persist($representation);
+            
+            $reference = "{$data['the_show']}-{$data['the_date']->format('YmdHis')}";            
+            $this->addReference($reference, $representation);
         }
 
         $manager->flush();

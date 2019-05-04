@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Type;
+use Cocur\Slugify\Slugify;
 
 class TypeFixtures extends Fixture
 {
@@ -23,6 +24,11 @@ class TypeFixtures extends Fixture
             $type->setType($t['type']);
             
             $manager->persist($type);
+            
+            $slugger = new Slugify();
+            $reference = $slugger->slugify($t['type']);
+            
+            $this->addReference($reference, $type);
         }
         
         $manager->flush();

@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Artist;
+use Cocur\Slugify\Slugify;
 
 class ArtistFixtures extends Fixture
 {
@@ -22,6 +23,11 @@ class ArtistFixtures extends Fixture
             $artist->setLastname($a['lastname']);
             
             $manager->persist($artist);
+            
+            $slugger = new Slugify();
+            $reference = $slugger->slugify($a['firstname']." ".$a['lastname']);
+
+            $this->addReference($reference, $artist);
         }
         
         $manager->flush();
