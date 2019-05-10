@@ -6,9 +6,17 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use App\Entity\User;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture implements DependentFixtureInterface
 {
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+         $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         $users = [
@@ -35,7 +43,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         foreach($users as $u) {
             $user = new User();
             $user->setLogin($u['login']);
-            $user->setPassword(password_hash($u['password'], PASSWORD_BCRYPT));
+            $user->setPassword($this->passwordEncoder->encodePassword($u,$u['password']));
             $user->setRole($this->getReference($u['role']));
             $user->setFirstname($u['firstname']);
             $user->setLastname($u['lastname']);
