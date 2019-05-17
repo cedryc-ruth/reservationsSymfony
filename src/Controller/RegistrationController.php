@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
+use App\Entity\Role;
 
 class RegistrationController extends AbstractController
 {
@@ -22,6 +23,11 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+        
+        //Définir le rôle par défaut des nouveaux membres
+        $repository = $this->getDoctrine()->getRepository(Role::class);
+        $role = $repository->findOneByRole('user');
+        $user->setRole($role);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password

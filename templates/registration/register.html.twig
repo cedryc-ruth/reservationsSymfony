@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}S'inscrire{% endblock %}
 
 {% block body %}
     <h1>S'inscrire</h1>
@@ -14,8 +14,6 @@
         {{ form_row(registrationForm.confPassword) }}
         {{ form_row(registrationForm.langue) }}
         
-        {{ form_row(registrationForm.role) }}
-
         <button class="btn">S'inscrire</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
