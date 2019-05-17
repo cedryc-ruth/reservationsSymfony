@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+{% block body %}
+<form method="post">
+    <fieldset><legend>Inscription</legend>
+        <div class="text-right"><a href="{{ path('app_login') }}">Se connecter</a></div>
+        
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" value="" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+
+        <label for="inputFirstname" class="sr-only">Prénom</label>
+        <input type="text" value="" name="firstname" id="inputFirstname" class="form-control" placeholder="Prénom" required>
+
+        <label for="inputLastname" class="sr-only">Nom</label>
+        <input type="text" value="" name="lastname" id="inputLastname" class="form-control" placeholder="Nom" required>
+
+        <label for="inputLogin" class="sr-only">Login</label>
+        <input type="text" value="" name="login" id="inputLogin" class="form-control" placeholder="Login" required>
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+
+        <label for="inputConfPassword" class="sr-only">Password</label>
+        <input type="password" name="conf_password" id="inputConfPassword" class="form-control" placeholder="Confirmer le mot de passe" required>
+
+        <label for="inputLangue" class="sr-only">Langue</label>
+        <select name="langue" id="inputLangue">
+            <option></option>
+            <option value="fr">Français</option>
+            <option value="en">Anglais</option>
+        </select>
+
+        <button class="btn btn-lg btn-primary" type="submit">
+            S'inscrire
+        </button>
+    </fieldset>
+</form>
+{% endblock %}

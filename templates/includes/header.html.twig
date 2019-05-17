@@ -1,0 +1,28 @@
+<header>
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+      <a class="navbar-brand" href="{{ path('artist') }}">Projet Réservations</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0" action="#">
+          <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+          <button class="btn btn-light my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
+    {% if app.user %}
+        <form class="form-inline my-2 my-lg-0" action="{{ path('app_logout') }}">
+          <button class="btn btn-danger my-2 my-sm-0 mx-2" type="submit">Se déconnecter</button>
+        </form>
+    {% else %}
+        <form class="form-inline my-2 my-lg-0" action="{{ path('app_login') }}">
+          <button class="btn btn-success my-2 my-sm-0 mx-2" type="submit">Se connecter</button>
+        </form>
+     
+        <form class="form-inline my-2 my-lg-0" action="#">
+          <button class="btn btn-warning my-2 my-sm-0" type="submit">S'inscrire</button>
+        </form>
+    {% endif %}
+      </div>
+    </nav>
+</header>
