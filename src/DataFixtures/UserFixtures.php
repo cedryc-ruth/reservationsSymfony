@@ -32,7 +32,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             [
                 'login'=>'fred',
                 'password'=>'123',
-                'role'=>'membre',
+                'role'=>'user',
                 'firstname'=>'Fred',
                 'lastname'=>'Sull',
                 'email'=>'fred@sull.com',
@@ -43,7 +43,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         foreach($users as $u) {
             $user = new User();
             $user->setLogin($u['login']);
-            $user->setPassword($this->passwordEncoder->encodePassword($u,$u['password']));
+            $user->setPassword($this->passwordEncoder->encodePassword($user,$u['password']));
             $user->setRole($this->getReference($u['role']));
             $user->setFirstname($u['firstname']);
             $user->setLastname($u['lastname']);

@@ -12,7 +12,7 @@ class RoleFixtures extends Fixture
     {
         $roles = [
             ['role'=>'admin'],
-            ['role'=>'membre'],
+            ['role'=>'user'],
            
         ];
         

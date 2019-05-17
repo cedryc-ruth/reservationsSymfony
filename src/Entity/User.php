@@ -188,12 +188,18 @@ class User implements UserInterface
 
         return $this;
     }
+    
     public function eraseCredentials() {
         
     }
 
     public function getRoles() {
+        $role = $this->role->getRole();
         
+        return array_unique([
+            "ROLE_USER",
+            "ROLE_".strtoupper($role)
+        ]);
     }
 
     public function getSalt() {
@@ -201,6 +207,6 @@ class User implements UserInterface
     }
 
     public function getUsername(): string {
-        
+        return $this->login;
     }
 }
