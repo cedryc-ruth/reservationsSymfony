@@ -3,18 +3,25 @@
 {% block title %}Show{% endblock %}
 
 {% block body %}
-    <h1>Show</h1>
+    <h2>{{ show.title }}</h2>
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ asset(show.posterUrl) }}" alt="{{ show.title }}">
-        <div class="card-body">
-          <h5 class="card-title">{{ show.title }}</h5>
-          <p class="card-text">{{ show.title }}</p>
-        {% if show.bookable %}
-          <a href="#" class="btn btn-primary">Réserver</a>
-        {% endif %}
-        </div>
+    <div class="card" style="width:18rem;float:left;margin-right: 10px;">
+        <figure>
+            <img class="card-img-top" src="{{ asset(show.posterUrl) }}" alt="{{ show.title }}">
+            <figcaption>de {{ show.author }}</figcaption>
+        </figure>
     </div>
+    <p class="card-text">{{ show.description }}</p>
+    
+    <hr style="clear:both; border: 0">
+    <ul>
+    {% for representation in show.representations %}
+        <li>{{ representation.theDate | date("d/m/Y G:i") }}</li>
+    {% endfor %}
+    </ul>
+{% if show.bookable %}
+    <a href="#" class="btn btn-primary">Réserver</a>
+{% endif %}
         
     <a href="{{ path('show_index') }}">back to list</a>
 {% if is_granted('ROLE_ADMIN') %}
