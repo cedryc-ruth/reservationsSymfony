@@ -5,38 +5,21 @@
 {% block body %}
     <h1>Show</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ show.id }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ show.slug }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ show.title }}</td>
-            </tr>
-            <tr>
-                <th>Poster_url</th>
-                <td>{{ show.posterUrl }}</td>
-            </tr>
-            <tr>
-                <th>Bookable</th>
-                <td>{{ show.bookable ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ show.price }}</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ asset(show.posterUrl) }}" alt="{{ show.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ show.title }}</h5>
+          <p class="card-text">{{ show.title }}</p>
+        {% if show.bookable %}
+          <a href="#" class="btn btn-primary">Réserver</a>
+        {% endif %}
+        </div>
+    </div>
+        
     <a href="{{ path('show_index') }}">back to list</a>
-
+{% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('show_edit', {'id': show.id}) }}">edit</a>
 
     {{ include('show/_delete_form.html.twig') }}
+{% endif %}
 {% endblock %}
