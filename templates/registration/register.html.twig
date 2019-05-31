@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme registrationForm 'form/fields.html.twig' %}
+
 {% block title %}S'inscrire{% endblock %}
 
 {% block body %}
     <h1>S'inscrire</h1>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.firstname) }}
-        {{ form_row(registrationForm.lastname) }}
-        {{ form_row(registrationForm.login) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.confPassword) }}
-        {{ form_row(registrationForm.langue) }}
+        {{ form_row(registrationForm.email, {'attr':{'class':'form-control'}}) }}
+        {{ form_row(registrationForm.firstname, {'attr':{'class':'form-control'}}) }}
+        {{ form_row(registrationForm.lastname, {'attr':{'class':'form-control'}}) }}
+        {{ form_row(registrationForm.login, {'attr':{'class':'form-control'}}) }}
+        {{ form_row(registrationForm.plainPassword, {'attr':{'class':'form-control'}}) }}
+        {{ form_row(registrationForm.confPassword, {'attr':{'class':'form-control'}}) }}
+        {{ form_row(registrationForm.langue, {'attr':{'class':'form-control'}}) }}
         
-        <button class="btn">S'inscrire</button>
+        <button class="btn btn-primary">S'inscrire</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
