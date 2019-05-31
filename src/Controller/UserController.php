@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Form\FormError;
 
 /**
  * @Route("/user")
@@ -85,29 +86,39 @@ class UserController extends AbstractController
             $confPassword = $form->get('confPassword')->getData();
             
             //L'ancien mot de passe a été fourni
-            if($oldPassword!='') {
+            if($oldPassword!='') {                
                 //L'ancien mot de passe correspond
                 if($passwordEncoder->isPasswordValid($user, $oldPassword)) {
-                    //Le nouveau mot de passe est confirmé
-                    if($newPassword==$confPassword) {
-                        //Crypter le nouveau mot de passe
-                        $user->setPassword(
-                            $passwordEncoder->encodePassword(
-                                $user,
-                                $form->get('newPassword')->getData()
-                            )
-                        );
-                    }
-                }
-            }
-                        
-            $manager = $this->getDoctrine()->getManager();
-            $manager->persist($user);
-            $manager->flush();
+                    if(!empty($newPassword)) {
+                        //Le nouveau mot de passe est confirmé
+                        if($newPassword==$confPassword) {
+                            //Crypter le nouveau mot de passe
+                            $user->setPassword(
+                                $passwordEncoder->encodePassword(
+                                    $user,
+                                    $form->get('newPassword')->getData()
+                                )
+                            );
 
-            return $this->redirectToRoute('user_index', [
-                'id' => $user->getId(),
-            ]);
+                            $manager = $this->getDoctrine()->getManager();
+                            $manager->persist($user);
+                            $manager->flush();
+
+                            return $this->redirectToRoute('user_index', [
+                                'id' => $user->getId(),
+                            ]);
+                        } else {
+                            $form->addError(new FormError('Les deux mots de passe ne correspondent pas!'));
+                        }
+                    } else {
+                        $form->addError(new FormError('Le mot de passe ne peut être vide!'));
+                    }
+                } else {
+                    $form->addError(new FormError('Le mot de passe fourni n\'est pas valide!'));
+                }
+            } else {
+                $form->addError(new FormError('Veuillez fournir l\'ancien mot de passe!'));
+            }
         }
 
         return $this->render('user/edit.html.twig', [
