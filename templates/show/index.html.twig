@@ -9,6 +9,30 @@
     <script>
         $(function(){
             $('table#liste-shows').DataTable();
+            
+            //
+            $('td.switchable').on('dblclick', function(event) {
+                let $td = $(this);
+                let idShow = $(this).attr('data-ref');
+                let bookable = $(this).text();
+                //console.log(idShow);
+                const API_URL = 'http://localhost/reservationsSymfony/public/index.php/';
+                
+                $.ajax({
+                  method: "POST",
+                  url: API_URL+'show/switchBookable/'+idShow,
+                  data: { idShow: idShow, bookable: bookable }
+                }).done(function( msg ) {
+                    if(bookable=='No') {
+                        $td.text('Yes');
+                    } else {
+                        $td.text('No');
+                    }
+                }).fail(function(){
+                    console.log('Erreur API');
+                });
+            });
+            
         });
     </script>
 {% endblock %}
@@ -37,7 +61,7 @@
                 <td>{{ show.slug }}</td>
                 <td>{{ show.title }}</td>
                 <td>{{ show.posterUrl }}</td>
-                <td>{{ show.bookable ? 'Yes' : 'No' }}</td>
+                <td class="switchable" data-ref="{{ show.id }}">{{ show.bookable ? 'Yes' : 'No' }}</td>
                 <td>{{ show.price }}</td>
                 <td>
                     <a href="{{ path('show_show', {'id': show.id}) }}">show</a>

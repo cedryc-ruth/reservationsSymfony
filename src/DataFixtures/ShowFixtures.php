@@ -34,6 +34,7 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
                   'marc-flynn-metteur-en-scene',
                   'fred-durand-comedien',
               ],
+              'category'=>'one-man-show',
           ],
           [
               'slug'=>'cible-mouvante',
@@ -53,6 +54,7 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
                   'marc-flynn-dramaturge',
                   'fred-durand-comedien',
               ],
+              'category'=>'theatre',
           ],
           [
               'slug'=>'ceci-n-est-pas-un-chanteur-belge',
@@ -74,6 +76,7 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
                   'fred-durand-metteur-en-scene',
                   'marc-flynn-comedien',
               ],
+              'category'=>'one-man-show',
           ],
         ];
         
@@ -90,6 +93,8 @@ class ShowFixtures extends Fixture implements DependentFixtureInterface
             foreach ($data['troupe'] as $troupe) {
                 $show->addTroupe($this->getReference($troupe));
             }
+            
+            $show->setCategory($this->getReference($data['category']));
             
             $manager->persist($show);
             

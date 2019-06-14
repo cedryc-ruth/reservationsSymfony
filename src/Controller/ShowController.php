@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Cocur\Slugify\Slugify;
+use App\Entity\Category;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/show")
@@ -40,6 +42,13 @@ class ShowController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $slugify = new Slugify();
             $show->setSlug($slugify->slugify($show->getTitle()));
+            
+            if(is_null($show->getCategory())){
+                $repoCategory = $this->getDoctrine()->getRepository(Category::class);
+                $categorie = $repoCategory->findOneByName('inconnue');
+                
+                $show->setCategory($categorie);
+            }
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($show);
@@ -87,7 +96,14 @@ class ShowController extends AbstractController
         $form = $this->createForm(ShowType::class, $show);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {           
+            if(empty($request->request->get('show')['category'])){
+                $repoCategory = $this->getDoctrine()->getRepository(Category::class);
+                $categorie = $repoCategory->findOneByName('inconnue');
+                
+                $show->setCategory($categorie);
+            }
+            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('show_index', [
@@ -115,5 +131,24 @@ class ShowController extends AbstractController
         }
 
         return $this->redirectToRoute('show_index');
+    }
+    
+    /**
+     * @Route("/switchBookable/{id}", name="show_bookable_switch", methods={"POST"})
+     */
+    public function switchBookable(Request $request, Show $show): Response
+    {
+        $bookable = $request->request->get('bookable');
+        $idShow = $request->get('id');
+        
+        if($bookable=='No') {
+            $show->setBookable(true);
+        } elseif($bookable=='Yes') {
+            $show->setBookable(false);
+        }
+        
+        $this->getDoctrine()->getManager()->flush();
+        
+        return new JsonResponse(TRUE);
     }
 }
